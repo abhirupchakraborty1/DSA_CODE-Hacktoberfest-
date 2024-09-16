@@ -1,31 +1,31 @@
 /*  C Program to implement priority queue using linked list  */
 
-#include<stdio.h>
-#include<stdlib.h>
+#include<stdio.h>//Including the header file for standard input and output operations
+#include<stdlib.h>//Including the stdlib.h header file
 
-struct node
+struct node//Structure named node
 {
-        int priority;
-        int info;
-        struct node *link;
+        int priority;//Stores priority
+        int info;//Stores the data
+        struct node *link;//Creates the link to the next node
 }*front=NULL;
 
-void insert(int item, int item_priority);
-int del();
-void display();
-int isEmpty();
+void insert(int item, int item_priority);//insert function signature
+int del();//del function signature
+void display();//display function signature
+int isEmpty();//isEmpty function signature
 
-int main()
+int main()//main function
 {
         int choice,item,item_priority;
-        while(1)
+        while(1)//running an infinite loop
         {
                 printf("\n1.Insert\n");
                 printf("2.Delete\n");
                 printf("3.Display\n");
                 printf("4.Quit\n");
                 printf("\nEnter your choice : ");
-                scanf("%d", &choice);
+                scanf("%d", &choice);//Accepting the choice of the user
 
                 switch(choice)
                 {
@@ -34,17 +34,17 @@ int main()
                         scanf("%d",&item);
                         printf("\nEnter its priority : ");
                         scanf("%d",&item_priority);
-                        insert(item, item_priority);
+                        insert(item, item_priority);//calling the insert function
                         break;
                  case 2:
-                        printf("\nDeleted item is %d\n",del());
+                        printf("\nDeleted item is %d\n",del());//Calling the delete function
                         break;
                  case 3:
-                        display();
+                        display();//Calling the delete function
                         break;
                  case 4:
                         exit(1);
-                 default :
+                 default ://default condition when choice value does no match any case condition
                         printf("\nWrong choice\n");
                 }              //End of switch/
         }                   //End of while/
@@ -52,7 +52,7 @@ int main()
         return 0;
 }                           //End of main()/
 
-void insert(int item,int item_priority)
+void insert(int item,int item_priority)//insert function defination
 {
         struct node *tmp,*p;
 
@@ -80,13 +80,13 @@ void insert(int item,int item_priority)
         }
 }                           //End of insert()/
 
-int del()
+int del()//delete function defination
 {
         struct node *tmp;
         int item;
         if( isEmpty() )
         {
-                printf("\nQueue Underflow\n");
+                printf("\nQueue Underflow\n");//Queue underflow condition
                 exit(1);
         }
         else
@@ -99,7 +99,7 @@ int del()
         return item;
 }                  //End of del()/
 
-int isEmpty()
+int isEmpty()//is Empty function defination
 {
         if( front == NULL )
                 return 1;
@@ -109,7 +109,7 @@ int isEmpty()
 }                 //End of isEmpty()/
 
 
-void display()
+void display()//display function defination
 {
         struct node *ptr;
         ptr=front;
